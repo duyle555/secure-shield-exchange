@@ -1,10 +1,9 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Document, Wallet, Handshake } from "lucide-react";
+import { FileText, Wallet, Handshake } from "lucide-react";
 
 const Index = () => {
   return (
@@ -52,7 +51,7 @@ const Index = () => {
               <CardContent className="p-8 text-center">
                 <div className="mb-6 flex justify-center">
                   <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center icon-pop group-hover:bg-blue-700 transition-colors">
-                    <Document className="w-8 h-8 text-white" />
+                    <FileText className="w-8 h-8 text-white" />
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Tạo giao dịch</h3>
