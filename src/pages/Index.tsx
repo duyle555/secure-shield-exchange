@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,7 +8,7 @@ import { FileText, Wallet, Handshake } from "lucide-react";
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      {/* <Header /> */}
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -148,7 +147,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
