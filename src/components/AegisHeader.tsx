@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Menu, User } from 'phosphor-react';
+import { Shield, List, User } from 'phosphor-react';
 
 const AegisHeader = () => {
   return (
@@ -51,7 +51,7 @@ const AegisHeader = () => {
           
           {/* Mobile Menu Button */}
           <button className="md:hidden p-2 text-gray-300 hover:text-white">
-            <Menu className="w-6 h-6" />
+            <List className="w-6 h-6" />
           </button>
         </div>
       </div>
