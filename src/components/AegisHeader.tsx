@@ -20,7 +20,7 @@ const AegisHeader = () => {
             <Shield className="w-6 h-6 text-white" />
           </div>
           <span className="bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
-            Aegis
+            EscrowVN
           </span>
         </Link>
 
@@ -29,24 +29,24 @@ const AegisHeader = () => {
           <Link to="/dashboard" className="text-gray-300 hover:text-white transition-colors">
             Dashboard
           </Link>
-          <Link to="/transactions" className="text-gray-300 hover:text-white transition-colors">
-            Transactions
+          <Link to="/create-transaction" className="text-gray-300 hover:text-white transition-colors">
+            Tạo giao dịch
           </Link>
           <Link to="/how-it-works" className="text-gray-300 hover:text-white transition-colors">
-            How It Works
+            Hướng dẫn
           </Link>
           <Link to="/support" className="text-gray-300 hover:text-white transition-colors">
-            Support
+            Hỗ trợ
           </Link>
         </nav>
 
         {/* User Actions */}
         <div className="flex items-center space-x-4">
-          <Link to="/login" className="btn-secondary hidden md:inline-block">
-            Sign In
+          <Link to="/auth" className="btn-secondary hidden md:inline-block">
+            Đăng nhập
           </Link>
-          <Link to="/register" className="btn-primary">
-            Get Started
+          <Link to="/auth" className="btn-primary">
+            Bắt đầu
           </Link>
           
           {/* Mobile Menu Button */}
