@@ -4,7 +4,7 @@ import {
   PenNib, 
   ShieldCheck, 
   Package, 
-  HandCoins 
+  CurrencyCircleDollar 
 } from 'phosphor-react';
 
 const steps = [
@@ -24,7 +24,7 @@ const steps = [
     description: "Người mua nhận hàng và có thời gian kiểm tra trong khung thời gian đã thỏa thuận."
   },
   {
-    icon: HandCoins,
+    icon: CurrencyCircleDollar,
     title: "Hoàn tất & Giải ngân",
     description: "Sau khi xác nhận hài lòng, tiền được tự động chuyển cho người bán. Giao dịch hoàn tất."
   }
