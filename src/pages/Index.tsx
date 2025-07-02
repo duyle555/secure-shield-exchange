@@ -4,21 +4,21 @@ import AegisHeader from '@/components/AegisHeader';
 import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import UseCasesSection from '@/components/sections/UseCasesSection';
-import { initializeAnimations } from '@/components/animations/AnimationLibrary';
-import '../styles/glassmorphic.css';
 
 const Index = () => {
   useEffect(() => {
-    // Initialize animations after component mounts
-    const timer = setTimeout(() => {
-      initializeAnimations();
-    }, 100);
-
-    return () => clearTimeout(timer);
+    // Set initial theme based on user preference
+    if (!localStorage.getItem('theme')) {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--color-background)' }}>
+    <div className="min-h-screen bg-background text-foreground">
       <AegisHeader />
       
       <main>
