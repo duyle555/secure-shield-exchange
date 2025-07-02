@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Shield, Wallet, Plus, Clock, CheckCircle, AlertTriangle, ArrowUp, ArrowDown } from 'phosphor-react';
+import { Shield, Wallet, Plus, Clock, CheckCircle, Warning, ArrowUp, ArrowDown } from 'phosphor-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -167,7 +166,7 @@ const Dashboard = () => {
               <Card className="glass-panel border-yellow-500">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2 text-yellow-400">
-                    <AlertTriangle className="w-5 h-5" />
+                    <Warning className="w-5 h-5" />
                     <span>Cần xử lý ({actionRequiredTransactions.length})</span>
                   </CardTitle>
                 </CardHeader>
