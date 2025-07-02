@@ -17,7 +17,7 @@ const SocialProofSection = () => {
     <section className="py-16 bg-gray-50 dark:bg-dark-background/50 overflow-hidden">
       <div className="container mx-auto px-4 text-center">
         <h3 className="text-lg font-semibold text-gray-600 dark:text-dark-subtle mb-12">
-          Chấp nhận Thanh toán qua Hầu hết Ngân hàng & Ví điện tử
+          Hỗ trợ Thanh toán qua Hầu hết Ngân hàng & Ví điện tử
         </h3>
         
         {/* Animated Marquee */}
