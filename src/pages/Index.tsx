@@ -1,10 +1,11 @@
 
 import React, { useEffect } from 'react';
-import AegisHeader from '@/components/AegisHeader';
+import EscrowHeader from '@/components/AegisHeader';
 import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
 import UseCasesSection from '@/components/sections/UseCasesSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
@@ -17,7 +18,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-dark-background text-dark-text">
-      <AegisHeader />
+      <EscrowHeader />
       
       <main>
         <HeroSection />
@@ -25,6 +26,8 @@ const Index = () => {
         <HowItWorksSection />
         <UseCasesSection />
       </main>
+
+      <Footer />
     </div>
   );
 };

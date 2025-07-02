@@ -4,8 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import AegisHeader from '@/components/AegisHeader';
-import { animate } from '@/components/animations/AnimationLibrary';
+import EscrowHeader from '@/components/AegisHeader';
 
 interface Transaction {
   id: string;
@@ -108,30 +107,36 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--color-background)' }}>
-      <AegisHeader />
+    <div className="min-h-screen bg-dark-background text-dark-text">
+      <EscrowHeader />
       
-      <div className="pt-24 px-4 max-w-7xl mx-auto">
+      <div className="pt-24 px-4 max-w-7xl mx-auto py-8">
+        {/* Page Title */}
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-2">Bảng điều khiển</h1>
+          <p className="text-dark-subtle">Quản lý giao dịch và ví EscrowVN của bạn</p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-4">
-            <Card className="glass-panel">
+            <Card className="glass-panel border-primary/30">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Wallet className="w-5 h-5" />
-                  <span>Ví Aegis</span>
+                  <span>Ví EscrowVN</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-green-400 mb-4">
+                <div className="text-3xl font-bold text-primary mb-4">
                   {formatCurrency(balance)}
                 </div>
                 <div className="space-y-2">
-                  <Button className="w-full btn-primary">
+                  <Button className="w-full btn-primary shadow-glow-primary hover:shadow-glow-primary-strong">
                     <ArrowDown className="w-4 h-4 mr-2" />
                     Nạp tiền
                   </Button>
-                  <Button variant="outline" className="w-full btn-secondary">
+                  <Button variant="outline" className="w-full border-primary/30 hover:bg-primary/10">
                     <ArrowUp className="w-4 h-4 mr-2" />
                     Rút tiền
                   </Button>
@@ -139,7 +144,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            <Card className="glass-panel">
+            <Card className="glass-panel border-accent/30">
               <CardHeader>
                 <CardTitle>Thống kê</CardTitle>
               </CardHeader>
@@ -147,13 +152,13 @@ const Dashboard = () => {
                 <div>
                   <div className="flex justify-between text-sm mb-1">
                     <span>Uy tín</span>
-                    <span>4.8/5.0</span>
+                    <span className="text-primary">4.8/5.0</span>
                   </div>
                   <Progress value={96} className="h-2" />
                 </div>
-                <div className="text-sm text-gray-400">
-                  <div>Giao dịch hoàn thành: 47</div>
-                  <div>Tổng giá trị: {formatCurrency(892000000)}</div>
+                <div className="text-sm text-dark-subtle space-y-1">
+                  <div>Giao dịch hoàn thành: <span className="text-primary font-semibold">47</span></div>
+                  <div>Tổng giá trị: <span className="text-accent font-semibold">{formatCurrency(892000000)}</span></div>
                 </div>
               </CardContent>
             </Card>
@@ -163,7 +168,7 @@ const Dashboard = () => {
           <div className="lg:col-span-3 space-y-6">
             {/* Action Required */}
             {actionRequiredTransactions.length > 0 && (
-              <Card className="glass-panel border-yellow-500">
+              <Card className="glass-panel border-yellow-500/50 bg-yellow-500/5">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2 text-yellow-400">
                     <Warning className="w-5 h-5" />
@@ -173,16 +178,16 @@ const Dashboard = () => {
                 <CardContent>
                   <div className="space-y-3">
                     {actionRequiredTransactions.map(tx => (
-                      <div key={tx.id} className="flex items-center justify-between p-3 bg-black/20 rounded-lg">
+                      <div key={tx.id} className="flex items-center justify-between p-4 bg-dark-background/50 rounded-xl border border-yellow-500/20">
                         <div>
-                          <div className="font-medium">{tx.title}</div>
-                          <div className="text-sm text-gray-400">
+                          <div className="font-medium text-dark-text">{tx.title}</div>
+                          <div className="text-sm text-dark-subtle">
                             {tx.type === 'buy' ? 'Từ' : 'Đến'} {tx.otherParty}
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="font-medium">{formatCurrency(tx.amount)}</div>
-                          <Button size="sm" className="btn-primary mt-1">
+                          <div className="font-medium text-primary">{formatCurrency(tx.amount)}</div>
+                          <Button size="sm" className="btn-primary mt-1 shadow-glow-primary">
                             {tx.status === 'delivered' ? 'Xác nhận' : 'Xem chi tiết'}
                           </Button>
                         </div>
@@ -194,42 +199,42 @@ const Dashboard = () => {
             )}
 
             {/* Create New Transaction */}
-            <Card className="glass-panel">
-              <CardContent className="p-6">
+            <Card className="glass-panel border-primary/30">
+              <CardContent className="p-8">
                 <div className="text-center">
-                  <Button className="btn-primary" size="lg">
+                  <Button className="btn-primary shadow-glow-primary hover:shadow-glow-primary-strong" size="lg">
                     <Plus className="w-5 h-5 mr-2" />
                     Tạo giao dịch mới
                   </Button>
-                  <p className="text-sm text-gray-400 mt-2">
-                    Bắt đầu một giao dịch an toàn với lá chắn Aegis
+                  <p className="text-sm text-dark-subtle mt-3">
+                    Bắt đầu một giao dịch an toàn với EscrowVN
                   </p>
                 </div>
               </CardContent>
             </Card>
 
             {/* Active Transactions */}
-            <Card className="glass-panel">
+            <Card className="glass-panel border-accent/30">
               <CardHeader>
                 <CardTitle>Giao dịch đang hoạt động</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-dark-subtle">
                   Theo dõi tình trạng các giao dịch của bạn
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {transactions.map(tx => (
-                    <div key={tx.id} className="glass-card p-4 hover:scale-[1.02] transition-transform cursor-pointer">
-                      <div className="flex items-center justify-between mb-3">
+                    <div key={tx.id} className="glass-card p-6 hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-white/10 hover:border-primary/30">
+                      <div className="flex items-center justify-between mb-4">
                         <div>
-                          <h3 className="font-medium">{tx.title}</h3>
-                          <p className="text-sm text-gray-400">
+                          <h3 className="font-semibold text-dark-text">{tx.title}</h3>
+                          <p className="text-sm text-dark-subtle">
                             {tx.type === 'buy' ? 'Mua từ' : 'Bán cho'} {tx.otherParty}
                           </p>
                         </div>
                         <div className="text-right">
-                          <div className="font-medium">{formatCurrency(tx.amount)}</div>
-                          <Badge className={`${getStatusColor(tx.status)} text-white`}>
+                          <div className="font-semibold text-primary">{formatCurrency(tx.amount)}</div>
+                          <Badge className={`${getStatusColor(tx.status)} text-white mt-1`}>
                             {getStatusText(tx.status)}
                           </Badge>
                         </div>
@@ -237,13 +242,13 @@ const Dashboard = () => {
                       
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
-                          <span>Tiến độ</span>
-                          <span>{tx.progress}%</span>
+                          <span className="text-dark-subtle">Tiến độ</span>
+                          <span className="text-primary font-medium">{tx.progress}%</span>
                         </div>
                         <Progress value={tx.progress} className="h-2" />
                       </div>
                       
-                      <div className="flex justify-between items-center mt-3 text-sm text-gray-400">
+                      <div className="flex justify-between items-center mt-4 text-sm text-dark-subtle">
                         <span>#{tx.id}</span>
                         <span>{tx.createdAt}</span>
                       </div>

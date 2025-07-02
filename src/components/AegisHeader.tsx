@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Shield, List, Sun, Moon, X } from 'phosphor-react';
 import { useDarkMode } from '@/hooks/useDarkMode';
 
-const AegisHeader = () => {
+const EscrowHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
@@ -156,4 +156,4 @@ const AegisHeader = () => {
   );
 };
 
-export default AegisHeader;
+export default EscrowHeader;
