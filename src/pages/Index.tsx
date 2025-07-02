@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import EscrowHeader from '@/components/AegisHeader';
+import EscrowHeader from '@/components/EscrowHeader';
 import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';

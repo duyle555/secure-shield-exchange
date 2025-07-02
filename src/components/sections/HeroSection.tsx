@@ -49,9 +49,9 @@ const HeroSection = () => {
           để bảo vệ từng đồng của bạn.
         </p>
 
-        {/* New section for high-value transactions */}
+        {/* New section for high-value transactions - Updated Vietnamese text */}
         <div className="mt-8 p-6 glass-card rounded-2xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-primary mb-4">Lý tưởng cho Giao dịch Giá trị lớn</h2>
+          <h2 className="text-2xl font-bold text-primary mb-4">An toàn Tuyệt đối cho Giao dịch Giá trị lớn</h2>
           <p className="text-lg text-dark-subtle">
             EscrowVN chuyên bảo vệ các giao dịch mà ở đó, sự tin cậy và quy trình xác thực là yếu tố tiên quyết. 
             An toàn cho từng đồng bạn chi ra.
