@@ -10,23 +10,23 @@ import {
 const steps = [
   {
     icon: PenNib,
-    title: "Tạo Giao dịch",
-    description: "Tạo hợp đồng với thông tin chi tiết, giá cả và thời hạn kiểm tra rõ ràng."
+    title: "Khởi tạo",
+    description: "Xác lập điều khoản trong 30 giây với giao diện đơn giản, rõ ràng."
   },
   {
     icon: ShieldCheck,
-    title: "Nạp tiền vào Khiên Aegis",
-    description: "Người mua nạp tiền vào tài khoản escrow được bảo vệ tuyệt đối bởi EscrowVN."
+    title: "Bảo vệ",
+    description: "Người mua nạp tiền vào Khiên Aegis được bảo vệ tuyệt đối bởi công nghệ blockchain."
   },
   {
     icon: Package,
-    title: "Nhận & Kiểm tra hàng",
-    description: "Người mua nhận hàng và có thời gian kiểm tra trong khung thời gian đã thỏa thuận."
+    title: "Kiểm tra",
+    description: "Người mua nhận hàng và có 48 giờ kiểm tra chất lượng trong khung thời gian an toàn."
   },
   {
     icon: CurrencyCircleDollar,
-    title: "Hoàn tất & Giải ngân",
-    description: "Sau khi xác nhận hài lòng, tiền được tự động chuyển cho người bán. Giao dịch hoàn tất."
+    title: "Hoàn tất",
+    description: "Xác nhận hài lòng, người bán nhận tiền ngay lập tức. Giao dịch minh bạch hoàn toàn."
   }
 ];
 
@@ -39,11 +39,11 @@ const HowItWorksSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Animate cards one by one
+            // Animate cards one by one with staggered delay
             steps.forEach((_, index) => {
               setTimeout(() => {
                 setVisibleCards(prev => [...prev, index]);
-              }, index * 200);
+              }, index * 300);
             });
           }
         });
@@ -59,84 +59,88 @@ const HowItWorksSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-dark-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(139, 92, 246) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(147, 114, 255) 1px, transparent 0)`,
+          backgroundSize: '60px 60px'
         }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 glass-panel rounded-full text-sm font-medium mb-6">
-            <ShieldCheck className="w-4 h-4 text-primary" />
-            <span>Quy trình 4 bước đơn giản</span>
-          </div>
-          
-          <h2 className="text-4xl lg:text-5xl font-extrabold mb-6">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tighter">
             Hoạt động như{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               thế nào?
             </span>
           </h2>
           
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Quy trình bảo mật 5 lớp của chúng tôi đảm bảo an toàn tuyệt đối cho cả người mua và người bán 
-            trong suốt toàn bộ giao dịch
+          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed">
+            Quy trình bảo mật 4 bước đơn giản nhưng mạnh mẽ, được thiết kế để đảm bảo 
+            an toàn tuyệt đối cho mọi giao dịch
           </p>
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connection Lines */}
-          <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/50 via-accent/50 to-primary/50"></div>
+        {/* Timeline Container */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Central Timeline Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full timeline-line"></div>
           
-          {steps.map((step, index) => (
-            <div key={index} className="relative">
-              {/* Step Card */}
-              <div className={`
-                glass-card p-8 h-full text-center rounded-2xl relative transition-all duration-700 transform hover:scale-105 hover:shadow-2xl group
-                ${visibleCards.includes(index) 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-                }
-              `}>
-                {/* Step Number */}
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-sm font-bold text-white border-4 border-background shadow-lg">
-                  {index + 1}
-                </div>
+          {/* Steps */}
+          <div className="space-y-24">
+            {steps.map((step, index) => (
+              <div key={index} className="relative">
+                {/* Timeline Dot */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-dark-background shadow-glow-primary z-10"></div>
+                
+                {/* Step Card */}
+                <div className={`
+                  flex items-center
+                  ${index % 2 === 0 ? 'flex-row-reverse text-right' : 'flex-row text-left'}
+                `}>
+                  <div className="w-1/2"></div>
+                  <div className={`
+                    w-1/2 
+                    ${index % 2 === 0 ? 'pr-12' : 'pl-12'}
+                    transition-all duration-700 transform
+                    ${visibleCards.includes(index) 
+                      ? 'opacity-100 translate-x-0' 
+                      : `opacity-0 ${index % 2 === 0 ? 'translate-x-8' : '-translate-x-8'}`
+                    }
+                  `}>
+                    <div className="glass-card p-8 rounded-2xl group hover:scale-105 transition-all duration-300">
+                      {/* Step Number */}
+                      <div className={`
+                        text-sm font-bold text-primary mb-2
+                        ${index % 2 === 0 ? 'text-right' : 'text-left'}
+                      `}>
+                        Bước {index + 1}
+                      </div>
 
-                {/* Icon */}
-                <div className="mb-6 flex justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <step.icon className="w-8 h-8 text-primary" weight="duotone" />
+                      {/* Icon */}
+                      <div className={`
+                        mb-6 flex
+                        ${index % 2 === 0 ? 'justify-end' : 'justify-start'}
+                      `}>
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <step.icon className="w-8 h-8 text-primary" weight="duotone" />
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <h3 className="text-2xl font-bold mb-4 text-dark-text">{step.title}</h3>
+                      <p className="text-dark-subtle leading-relaxed text-lg">{step.description}</p>
+
+                      {/* Hover Effect Indicator */}
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-b-2xl"></div>
+                    </div>
                   </div>
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-bold mb-4 text-foreground">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-
-                {/* Hover Effect Indicator */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-b-2xl"></div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="glass-panel rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">Sẵn sàng trải nghiệm?</h3>
-            <p className="text-muted-foreground mb-6">
-              Tham gia hàng nghìn người dùng đã tin tướng EscrowVN cho các giao dịch an toàn của họ
-            </p>
-            <button className="btn-primary px-8 py-3 text-lg font-semibold text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-              Tạo giao dịch đầu tiên
-            </button>
+            ))}
           </div>
         </div>
       </div>

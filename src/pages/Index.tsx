@@ -3,26 +3,25 @@ import React, { useEffect } from 'react';
 import AegisHeader from '@/components/AegisHeader';
 import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import SocialProofSection from '@/components/sections/SocialProofSection';
 import UseCasesSection from '@/components/sections/UseCasesSection';
 
 const Index = () => {
   useEffect(() => {
-    // Set initial theme based on user preference
+    // Set initial theme to dark mode as the primary experience
     if (!localStorage.getItem('theme')) {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (prefersDark) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     }
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-dark-background text-dark-text">
       <AegisHeader />
       
       <main>
         <HeroSection />
+        <SocialProofSection />
         <HowItWorksSection />
         <UseCasesSection />
       </main>

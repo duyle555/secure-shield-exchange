@@ -29,30 +29,32 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#8B5CF6',
+					DEFAULT: '#9372FF',
 					foreground: '#FFFFFF',
 					50: '#F3F0FF',
 					100: '#E9E2FF',
-					500: '#8B5CF6',
+					500: '#9372FF',
 					600: '#7C3AED',
 					700: '#6D28D9',
 				},
 				accent: {
-					DEFAULT: '#3B82F6',
+					DEFAULT: '#00F0FF',
 					foreground: '#FFFFFF',
 					50: '#EFF6FF',
 					100: '#DBEAFE',
-					500: '#3B82F6',
+					500: '#00F0FF',
 					600: '#2563EB',
 					700: '#1D4ED8',
 				},
-				light: {
-					background: '#F9FAFB',
-					text: '#1F2937',
-				},
 				dark: {
-					background: '#0D1117',
-					text: '#E5E7EB',
+					background: '#0A0F1F',
+					text: '#F0F2F5',
+					subtle: '#A1A7B8',
+				},
+				light: {
+					background: '#FFFFFF',
+					text: '#1D2433',
+					subtle: '#697081',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -90,6 +92,11 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			boxShadow: {
+				'glow-primary': '0 0 20px 5px rgba(147, 114, 255, 0.2)',
+				'glow-accent': '0 0 20px 5px rgba(0, 240, 255, 0.2)',
+				'glow-primary-strong': '0 0 30px 10px rgba(147, 114, 255, 0.3)',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -122,17 +129,27 @@ export default {
 					'50%': {
 						transform: 'translateY(-20px)'
 					}
+				},
+				'marquee': {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-100%)' }
+				},
+				'grid-flow': {
+					'0%, 100%': { opacity: '0.2' },
+					'50%': { opacity: '0.1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'gradient-shift': 'gradient-shift 15s ease infinite',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'marquee': 'marquee 30s linear infinite',
+				'grid-flow': 'grid-flow 4s ease-in-out infinite',
 			},
 			backgroundImage: {
-				'gradient-primary': 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)',
-				'gradient-dark': 'linear-gradient(135deg, #0D1117 0%, #1F2937 100%)',
+				'gradient-primary': 'linear-gradient(135deg, #9372FF 0%, #00F0FF 100%)',
+				'gradient-dark': 'linear-gradient(135deg, #0A0F1F 0%, #1F2937 100%)',
 			}
 		}
 	},
