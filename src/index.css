@@ -40,7 +40,7 @@ body {
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 80px; /* Add padding to prevent content from hiding under fixed header */
+  padding-top: 88px; /* Increased padding to prevent content from hiding under fixed header */
 }
 
 /* Glassmorphism Utility Classes */
