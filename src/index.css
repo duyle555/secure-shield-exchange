@@ -40,6 +40,7 @@ body {
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px; /* Add padding to prevent content from hiding under fixed header */
 }
 
 /* Glassmorphism Utility Classes */
@@ -137,16 +138,18 @@ body {
   animation: grid-flow 4s ease-in-out infinite;
 }
 
-/* Marquee Animation */
+/* Improved Marquee Animation */
 .marquee-container {
   width: 100%;
   overflow: hidden;
   position: relative;
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
 
 .marquee-content {
   display: flex;
-  animation: marquee 30s linear infinite;
+  animation: marquee 25s linear infinite;
   width: max-content;
 }
 
@@ -195,6 +198,10 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+  
   .glass-panel {
     padding: calc(var(--spacing-unit) * 2);
   }

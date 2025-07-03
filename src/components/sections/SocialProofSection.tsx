@@ -10,6 +10,7 @@ const partners = [
   { name: 'Momo', logo: '/logos/momo-logo.svg', initial: 'M' },
   { name: 'ZaloPay', logo: '/logos/zalopay-logo.svg', initial: 'Z' },
   { name: 'VNPay', logo: '/logos/vnpay-logo.svg', initial: 'V' },
+  { name: 'ShopeePay', logo: '/logos/shopeepay-logo.svg', initial: 'S' },
 ];
 
 const SocialProofSection = () => {
@@ -25,18 +26,18 @@ const SocialProofSection = () => {
           <div className="marquee-content flex items-center gap-16">
             {/* First set of partners */}
             {partners.map((partner, index) => (
-              <div key={`first-${index}`} className="flex items-center space-x-3 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 flex-shrink-0 hover:scale-110">
-                <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-xl flex items-center justify-center">
-                  <span className="text-gray-600 dark:text-gray-300 text-xs font-bold">{partner.initial}</span>
+              <div key={`first-${index}`} className="flex items-center space-x-3 opacity-90 hover:opacity-100 transition-all duration-300 flex-shrink-0 hover:scale-110">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md">
+                  <span className="text-gray-700 text-xs font-bold">{partner.initial}</span>
                 </div>
                 <span className="text-gray-700 dark:text-dark-text font-medium whitespace-nowrap">{partner.name}</span>
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
             {partners.map((partner, index) => (
-              <div key={`second-${index}`} className="flex items-center space-x-3 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 flex-shrink-0 hover:scale-110">
-                <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-xl flex items-center justify-center">
-                  <span className="text-gray-600 dark:text-gray-300 text-xs font-bold">{partner.initial}</span>
+              <div key={`second-${index}`} className="flex items-center space-x-3 opacity-90 hover:opacity-100 transition-all duration-300 flex-shrink-0 hover:scale-110">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md">
+                  <span className="text-gray-700 text-xs font-bold">{partner.initial}</span>
                 </div>
                 <span className="text-gray-700 dark:text-dark-text font-medium whitespace-nowrap">{partner.name}</span>
               </div>

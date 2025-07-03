@@ -12,44 +12,44 @@ import {
 const useCases = [
   {
     icon: Globe,
-    title: "Domain Sales",
-    description: "Secure high-value domain transactions with verified ownership transfer",
-    example: "$50K - $500K+",
+    title: "Tên miền",
+    description: "Bảo vệ giao dịch tên miền giá trị cao với xác minh quyền sở hữu",
+    example: "1-10 tỷ VNĐ+",
     color: "from-blue-600 to-cyan-600"
   },
   {
     icon: Palette,
-    title: "NFTs & Digital Art",
-    description: "Protect collectors and creators in high-value digital asset sales",
-    example: "$1K - $100K+",
+    title: "NFTs & Nghệ thuật số",
+    description: "Bảo vệ nhà sưu tập và nghệ sĩ trong các giao dịch tài sản số giá trị cao",
+    example: "25-2,5 tỷ VNĐ+",
     color: "from-purple-600 to-pink-600"
   },
   {
     icon: Code,
-    title: "Software & IP",
-    description: "License enterprise software and source code with milestone payments",
-    example: "$5K - $250K+",
+    title: "Phần mềm & Sở hữu trí tuệ",
+    description: "Cấp phép phần mềm doanh nghiệp và mã nguồn với thanh toán theo từng giai đoạn",
+    example: "125-6 tỷ VNĐ+",
     color: "from-green-600 to-emerald-600"
   },
   {
     icon: Car,
-    title: "Luxury Vehicles",
-    description: "Classic cars, supercars, and specialty vehicles with inspection periods",
-    example: "$25K - $1M+",
+    title: "Phương tiện Cao cấp",
+    description: "Xe cổ điển, siêu xe và xe chuyên dùng với thời gian kiểm tra",
+    example: "600-25 tỷ VNĐ+",
     color: "from-orange-600 to-red-600"
   },
   {
     icon: Diamond,
-    title: "Jewelry & Watches",
-    description: "High-end timepieces and jewelry with authenticity verification",
-    example: "$2K - $100K+",
+    title: "Trang sức & Đồng hồ",
+    description: "Đồng hồ cao cấp và trang sức với xác thực tính xác thực",
+    example: "50-2,5 tỷ VNĐ+",
     color: "from-yellow-600 to-amber-600"
   },
   {
     icon: Monitor,
-    title: "Electronics",
-    description: "Professional equipment, rare tech, and custom computer builds",
-    example: "$500 - $50K+",
+    title: "Thiết bị Điện tử",
+    description: "Thiết bị chuyên nghiệp, công nghệ hiếm và máy tính tùy chỉnh",
+    example: "12-1,2 tỷ VNĐ+",
     color: "from-indigo-600 to-blue-600"
   }
 ];
@@ -59,9 +59,9 @@ const UseCasesSection = () => {
     <section className="py-20 bg-gray-950/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-animate="fadeInUpBlur">
-          <h2 className="text-4xl font-bold mb-4">Perfect for High-Value Transactions</h2>
+          <h2 className="text-4xl font-bold mb-4">Lý tưởng cho Giao dịch Giá trị lớn</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Aegis specializes in securing transactions where trust and verification are paramount
+            EscrowVN chuyên bảo vệ các giao dịch mà ở đó, sự tin cậy và quy trình xác thực là yếu tố tiên quyết
           </p>
         </div>
 
@@ -88,10 +88,10 @@ const UseCasesSection = () => {
 
         <div className="text-center mt-12">
           <div className="glass-panel inline-block">
-            <p className="text-lg font-medium mb-2">Ready to secure your transaction?</p>
-            <p className="text-gray-400 mb-4">Join thousands who trust Aegis with their high-value deals</p>
+            <p className="text-lg font-medium mb-2">Sẵn sàng bảo vệ giao dịch của bạn?</p>
+            <p className="text-gray-400 mb-4">Tham gia cùng hàng nghìn người tin tưởng EscrowVN</p>
             <a href="/register" className="btn-primary">
-              Start Your First Transaction
+              Bắt đầu Giao dịch Đầu tiên
             </a>
           </div>
         </div>
