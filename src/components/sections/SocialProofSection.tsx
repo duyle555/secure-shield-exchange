@@ -2,44 +2,54 @@
 import React from 'react';
 
 const partners = [
-  { name: 'Vietcombank', logo: '/logos/vietcombank-logo.svg', initial: 'VCB' },
-  { name: 'Techcombank', logo: '/logos/techcombank-logo.svg', initial: 'TCB' },
-  { name: 'BIDV', logo: '/logos/bidv-logo.svg', initial: 'BIDV' },
-  { name: 'MB Bank', logo: '/logos/mb-logo.svg', initial: 'MB' },
-  { name: 'ACB', logo: '/logos/acb-logo.svg', initial: 'ACB' },
-  { name: 'Momo', logo: '/logos/momo-logo.svg', initial: 'M' },
-  { name: 'ZaloPay', logo: '/logos/zalopay-logo.svg', initial: 'Z' },
-  { name: 'VNPay', logo: '/logos/vnpay-logo.svg', initial: 'V' },
-  { name: 'ShopeePay', logo: '/logos/shopeepay-logo.svg', initial: 'S' },
+  { name: 'Vietcombank', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-Vietcombank-VCB.png', color: '#007A33' },
+  { name: 'Techcombank', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-Techcombank-TCB.png', color: '#E30613' },
+  { name: 'BIDV', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-BIDV.png', color: '#003DA5' },
+  { name: 'ACB', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-ACB.png', color: '#1E3A8A' },
+  { name: 'MB Bank', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-MBBank-MBB.png', color: '#FFA500' },
+  { name: 'Momo', logo: 'https://developers.momo.vn/v3/assets/images/square-logo.svg', color: '#A50064' },
+  { name: 'ZaloPay', logo: 'https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png', color: '#0068FF' },
+  { name: 'VNPay', logo: 'https://vnpay.vn/s1/statics.vnpay.vn/2023/6/0oxhzjmxbksr1686814746087.png', color: '#1976D2' },
+  { name: 'ShopeePay', logo: 'https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ShopeePay-Square.png', color: '#EE4D2D' },
 ];
 
 const SocialProofSection = () => {
   return (
-    <section className="py-16 bg-gray-50 dark:bg-dark-background/50 overflow-hidden">
+    <section className="py-16 bg-dark-background/50 overflow-hidden">
       <div className="container mx-auto px-4 text-center">
-        <h3 className="text-lg font-semibold text-gray-600 dark:text-dark-subtle mb-12">
+        <h3 className="text-lg font-semibold text-var(--color-text-secondary) mb-12">
           Hỗ trợ Thanh toán qua Hầu hết Ngân hàng & Ví điện tử
         </h3>
         
-        {/* Animated Marquee */}
-        <div className="marquee-container">
-          <div className="marquee-content flex items-center gap-16">
+        {/* Enhanced Marquee with Real Bank Logos */}
+        <div className="marquee-container py-8">
+          <div className="marquee-content flex items-center gap-12">
             {/* First set of partners */}
             {partners.map((partner, index) => (
-              <div key={`first-${index}`} className="flex items-center space-x-3 opacity-90 hover:opacity-100 transition-all duration-300 flex-shrink-0 hover:scale-110">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md">
-                  <span className="text-gray-700 text-xs font-bold">{partner.initial}</span>
-                </div>
-                <span className="text-gray-700 dark:text-dark-text font-medium whitespace-nowrap">{partner.name}</span>
+              <div 
+                key={`first-${index}`} 
+                className="flex items-center justify-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 flex-shrink-0 min-w-[180px] h-20"
+              >
+                <img 
+                  src={partner.logo} 
+                  alt={`${partner.name} logo`}
+                  className="h-10 w-auto object-contain filter brightness-110 contrast-110"
+                  style={{ maxWidth: '120px' }}
+                />
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
             {partners.map((partner, index) => (
-              <div key={`second-${index}`} className="flex items-center space-x-3 opacity-90 hover:opacity-100 transition-all duration-300 flex-shrink-0 hover:scale-110">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md">
-                  <span className="text-gray-700 text-xs font-bold">{partner.initial}</span>
-                </div>
-                <span className="text-gray-700 dark:text-dark-text font-medium whitespace-nowrap">{partner.name}</span>
+              <div 
+                key={`second-${index}`} 
+                className="flex items-center justify-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 flex-shrink-0 min-w-[180px] h-20"
+              >
+                <img 
+                  src={partner.logo} 
+                  alt={`${partner.name} logo`}
+                  className="h-10 w-auto object-contain filter brightness-110 contrast-110"
+                  style={{ maxWidth: '120px' }}
+                />
               </div>
             ))}
           </div>
