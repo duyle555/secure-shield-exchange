@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { 
   Target,
   CheckCircle,
@@ -30,8 +31,10 @@ const features = [
 ];
 
 const FeaturesSection = () => {
+  const sectionRef = useScrollAnimation();
+
   return (
-    <section className="py-32 bg-dark-background/50 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-dark-background/50 relative overflow-hidden section-fade-in">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl animate-float"></div>
@@ -41,13 +44,13 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tighter">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tight">
             Tính năng{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Nổi bật
             </span>
           </h2>
-          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed font-light opacity-80">
             Công nghệ tiên tiến, được thiết kế để bảo vệ mọi giao dịch của bạn
           </p>
         </div>
@@ -70,7 +73,7 @@ const FeaturesSection = () => {
 
                 {/* Content */}
                 <h3 className="text-2xl font-bold mb-4 text-dark-text">{feature.title}</h3>
-                <p className="text-dark-subtle leading-relaxed text-lg">{feature.description}</p>
+                <p className="text-dark-subtle leading-relaxed text-lg font-light opacity-90">{feature.description}</p>
 
                 {/* Hover Effect Indicator */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-b-2xl"></div>

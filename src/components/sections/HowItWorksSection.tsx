@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { 
   PenNib, 
   ShieldCheck, 
@@ -32,7 +33,7 @@ const steps = [
 
 const HowItWorksSection = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useScrollAnimation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +60,7 @@ const HowItWorksSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-dark-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-dark-background relative overflow-hidden section-fade-in">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -71,15 +72,15 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tighter">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tight">
             Hoạt động như{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               thế nào?
             </span>
           </h2>
           
-          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed">
-            Quy trình bảo mật 4 bước đơn giản nhưng mạnh mẽ, được thiết kế để đảm bảo 
+          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed font-light opacity-80">
+            Quy trình bảo mật 4 bước đơn giản nhưng mạnh mẽ, được thiết kế để đảm bảo
             an toàn tuyệt đối cho mọi giao dịch
           </p>
         </div>
@@ -126,13 +127,13 @@ const HowItWorksSection = () => {
                         ${index % 2 === 0 ? 'justify-end' : 'justify-start'}
                       `}>
                         <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <step.icon className="w-8 h-8 text-primary" weight="duotone" />
+                          <step.icon className="w-8 h-8 text-primary" weight="light" />
                         </div>
                       </div>
 
                       {/* Content */}
                       <h3 className="text-2xl font-bold mb-4 text-dark-text">{step.title}</h3>
-                      <p className="text-dark-subtle leading-relaxed text-lg">{step.description}</p>
+                      <p className="text-dark-subtle leading-relaxed text-lg font-light opacity-90">{step.description}</p>
 
                       {/* Hover Effect Indicator */}
                       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-b-2xl"></div>

@@ -1,8 +1,11 @@
 import React from 'react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const MissionSection = () => {
+  const sectionRef = useScrollAnimation();
+
   return (
-    <section className="py-32 bg-dark-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-dark-background relative overflow-hidden section-fade-in">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/20"></div>
@@ -11,7 +14,7 @@ const MissionSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Header */}
-          <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-dark-text tracking-tighter">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-dark-text tracking-tight">
             Sứ mệnh của{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               chúng tôi
@@ -20,7 +23,7 @@ const MissionSection = () => {
 
           {/* Mission Statement */}
           <div className="glass-card p-12 rounded-3xl">
-            <p className="text-2xl lg:text-3xl text-dark-text leading-relaxed font-medium">
+            <p className="text-2xl lg:text-3xl text-dark-text leading-relaxed font-light">
               Mang lại sự an toàn và tin cậy tuyệt đối cho mọi giao dịch trực tuyến tại Việt Nam, 
               xóa bỏ nỗi lo lừa đảo và thúc đẩy một nền kinh tế số minh bạch.
             </p>
@@ -45,7 +48,7 @@ const MissionSection = () => {
           {/* Vision Statement */}
           <div className="mt-16 text-center">
             <h3 className="text-2xl font-bold text-dark-text mb-6">Tầm nhìn 2030</h3>
-            <p className="text-xl text-dark-subtle leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl text-dark-subtle leading-relaxed max-w-4xl mx-auto font-light opacity-80">
               Trở thành nền tảng giao dịch trung gian hàng đầu Đông Nam Á, 
               nơi mọi giao dịch đều được thực hiện với sự tin cậy và minh bạch hoàn toàn.
             </p>

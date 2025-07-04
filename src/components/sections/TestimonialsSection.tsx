@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CaretLeft, CaretRight } from 'phosphor-react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const testimonials = [
   {
@@ -34,6 +35,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRef = useScrollAnimation();
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -46,7 +48,7 @@ const TestimonialsSection = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-32 bg-dark-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-dark-background relative overflow-hidden section-fade-in">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -58,13 +60,13 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tighter">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tight">
             Khách hàng nói{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               gì về chúng tôi?
             </span>
           </h2>
-          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed font-light opacity-80">
             Hàng nghìn giao dịch thành công, niềm tin được xây dựng từng ngày
           </p>
         </div>
@@ -95,7 +97,7 @@ const TestimonialsSection = () => {
                 onClick={prevTestimonial}
                 className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
               >
-                <CaretLeft className="w-6 h-6 text-primary" weight="bold" />
+                <CaretLeft className="w-6 h-6 text-primary" weight="light" />
               </button>
               
               {/* Dots */}
@@ -117,7 +119,7 @@ const TestimonialsSection = () => {
                 onClick={nextTestimonial}
                 className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
               >
-                <CaretRight className="w-6 h-6 text-primary" weight="bold" />
+                <CaretRight className="w-6 h-6 text-primary" weight="light" />
               </button>
             </div>
           </div>

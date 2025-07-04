@@ -1,5 +1,6 @@
 
 import React from 'react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const partners = [
   { name: 'Vietcombank', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-Vietcombank-VCB.png', color: '#007A33' },
@@ -14,11 +15,13 @@ const partners = [
 ];
 
 const SocialProofSection = () => {
+  const sectionRef = useScrollAnimation();
+
   return (
-    <section className="py-16 bg-dark-background/50 overflow-hidden">
-      <div className="container mx-auto px-4 text-center">
-        <h3 className="text-lg font-semibold text-var(--color-text-secondary) mb-12">
-          Hỗ trợ Thanh toán qua Hầu hết Ngân hàng & Ví điện tử
+    <section ref={sectionRef} className="py-16 bg-dark-background/50 overflow-hidden section-fade-in">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="text-lg font-semibold text-var(--color-text-secondary) mb-12 font-light opacity-80">
+            Hỗ trợ Thanh toán qua Hầu hết Ngân hàng & Ví điện tử
         </h3>
         
         {/* Enhanced Marquee with Real Bank Logos */}

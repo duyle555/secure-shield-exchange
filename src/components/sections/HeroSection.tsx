@@ -1,25 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import usePageLoadAnimation from '@/hooks/usePageLoadAnimation';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Simple animation on mount
-    if (heroRef.current) {
-      heroRef.current.style.opacity = '0';
-      heroRef.current.style.transform = 'translateY(30px)';
-      
-      setTimeout(() => {
-        if (heroRef.current) {
-          heroRef.current.style.transition = 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
-          heroRef.current.style.opacity = '1';
-          heroRef.current.style.transform = 'translateY(0)';
-        }
-      }, 200);
-    }
-  }, []);
+  const containerRef = usePageLoadAnimation();
 
   return (
     <section className="relative flex items-center justify-center w-full h-screen bg-dark-background overflow-hidden">
@@ -34,13 +20,13 @@ const HeroSection = () => {
         <div className="absolute bottom-40 right-1/3 w-28 h-28 bg-accent/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '6s' }}></div>
       </div>
 
-      <div ref={heroRef} className="relative z-10 flex flex-col items-center gap-8 text-center px-4 max-w-6xl mx-auto">
+      <div ref={containerRef} className="relative z-10 flex flex-col items-center gap-8 text-center px-4 max-w-6xl mx-auto">
         {/* Main Content - Asymmetrical Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Left Side - Text Content */}
           <div className="text-left space-y-8">
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-dark-text leading-tight tracking-tighter">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-dark-text leading-tight tracking-tight fade-in-up">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Giao dịch An toàn
               </span>{' '}
@@ -48,21 +34,21 @@ const HeroSection = () => {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-xl md:text-2xl text-dark-subtle leading-relaxed">
+            <p className="text-xl md:text-2xl text-dark-subtle leading-relaxed opacity-80 font-light fade-in-up">
               EscrowVN giữ tiền của bạn bằng tấm khiên bảo mật. Người bán chỉ nhận được thanh toán khi bạn đã hoàn toàn hài lòng.
             </p>
 
             {/* CTA Button */}
             <Link 
               to="/auth" 
-              className="btn-primary px-12 py-6 text-xl font-bold text-white rounded-2xl shadow-glow-primary hover:shadow-glow-primary-strong transition-all duration-300 inline-flex items-center justify-center"
+              className="btn-primary px-12 py-6 text-xl font-bold text-white rounded-2xl shadow-glow-primary hover:shadow-glow-primary-strong transition-all duration-300 inline-flex items-center justify-center fade-in-up"
             >
               Bắt đầu Giao dịch An toàn
             </Link>
           </div>
 
           {/* Right Side - 3D Graphics Placeholder */}
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center fade-in-up">
             {/* 3D Shield Placeholder - Will be replaced with Spline model */}
             <div className="relative w-80 h-80 lg:w-96 lg:h-96">
               {/* Main Shield */}
@@ -86,7 +72,7 @@ const HeroSection = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce fade-in-up">
           <div className="w-6 h-10 border-2 border-dark-subtle rounded-full flex justify-center">
             <div className="w-1 h-3 bg-dark-subtle rounded-full mt-2 animate-pulse"></div>
           </div>

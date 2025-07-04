@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 import {
   Accordion,
   AccordionContent,
@@ -42,8 +43,10 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const sectionRef = useScrollAnimation();
+
   return (
-    <section className="py-32 bg-dark-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-dark-background relative overflow-hidden section-fade-in">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -55,13 +58,13 @@ const FAQSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tighter">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tight">
             Câu hỏi{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Thường gặp
             </span>
           </h2>
-          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed font-light opacity-80">
             Tìm hiểu thêm về EscrowVN và cách chúng tôi bảo vệ giao dịch của bạn
           </p>
         </div>

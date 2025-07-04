@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle } from 'phosphor-react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const benefits = [
   "Bảo vệ người mua 100%",
@@ -11,8 +12,10 @@ const benefits = [
 ];
 
 const PricingSection = () => {
+  const sectionRef = useScrollAnimation();
+
   return (
-    <section className="py-32 bg-dark-background/50 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-dark-background/50 relative overflow-hidden section-fade-in">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-float"></div>
@@ -22,13 +25,13 @@ const PricingSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tighter">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-dark-text tracking-tight">
             Một mức phí duy nhất,{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Hoàn toàn minh bạch
             </span>
           </h2>
-          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-dark-subtle max-w-3xl mx-auto leading-relaxed font-light opacity-80">
             Không có phí ẩn, không có bất ngờ. Chỉ một mức phí công bằng cho sự an toàn tuyệt đối.
           </p>
         </div>
@@ -60,7 +63,7 @@ const PricingSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center space-x-3 text-left">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" weight="fill" />
+                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" weight="light" />
                   <span className="text-dark-text text-lg">{benefit}</span>
                 </div>
               ))}
