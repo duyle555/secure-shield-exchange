@@ -2,9 +2,13 @@
 import React, { useEffect } from 'react';
 import EscrowHeader from '@/components/EscrowHeader';
 import HeroSection from '@/components/sections/HeroSection';
-import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
-import UseCasesSection from '@/components/sections/UseCasesSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import FeaturesSection from '@/components/sections/FeaturesSection';
+import MissionSection from '@/components/sections/MissionSection';
+import PricingSection from '@/components/sections/PricingSection';
+import FAQSection from '@/components/sections/FAQSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -23,8 +27,12 @@ const Index = () => {
       <main>
         <HeroSection />
         <SocialProofSection />
+        <TestimonialsSection />
         <HowItWorksSection />
-        <UseCasesSection />
+        <FeaturesSection />
+        <MissionSection />
+        <PricingSection />
+        <FAQSection />
       </main>
 
       <Footer />
