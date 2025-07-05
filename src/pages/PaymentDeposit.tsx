@@ -1,11 +1,13 @@
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import EscrowHeader from '@/components/EscrowHeader';
+import { ArrowLeft, ArrowRight, Wallet, CreditCard, Shield } from 'phosphor-react';
 
 const PaymentDeposit = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -16,19 +18,19 @@ const PaymentDeposit = () => {
     {
       id: "bank",
       name: "Chuyển khoản Ngân hàng",
-      icon: "🏦",
+      icon: <CreditCard className="w-8 h-8 text-primary" />,
       description: "Chuyển khoản qua ngân hàng nội địa"
     },
     {
       id: "momo",
       name: "Ví MoMo",
-      icon: "📱",
+      icon: <Wallet className="w-8 h-8 text-accent" />,
       description: "Thanh toán qua ví điện tử MoMo"
     },
     {
       id: "zalopay",
       name: "ZaloPay",
-      icon: "💳",
+      icon: <Shield className="w-8 h-8 text-primary" />,
       description: "Thanh toán qua ví điện tử ZaloPay"
     }
   ];
@@ -58,8 +60,10 @@ const PaymentDeposit = () => {
   const total = amount ? (parseFloat(amount) + parseFloat(amount) * 0.02).toLocaleString('vi-VN') : "0";
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl">
+    <div className="min-h-screen bg-dark-background text-dark-text">
+      <EscrowHeader />
+      
+      <div className="pt-24 px-4 max-w-2xl mx-auto py-8">
         {/* Progress Indicator */}
         <div className="mb-8">
           <div className="flex items-center justify-center space-x-4">
@@ -68,32 +72,32 @@ const PaymentDeposit = () => {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
                     step <= currentStep
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-300 text-gray-600"
+                      ? "bg-primary text-white shadow-glow-primary"
+                      : "bg-dark-background/60 text-dark-subtle border border-white/20"
                   }`}
                 >
                   {step}
                 </div>
                 {step < 3 && (
                   <div
-                    className={`w-16 h-1 mx-2 ${
-                      step < currentStep ? "bg-blue-600" : "bg-gray-300"
+                    className={`w-16 h-1 mx-2 rounded-full ${
+                      step < currentStep ? "bg-primary shadow-glow-primary" : "bg-white/20"
                     }`}
                   />
                 )}
               </div>
             ))}
           </div>
-          <div className="flex justify-between mt-2 text-sm text-gray-600">
+          <div className="flex justify-between mt-4 text-sm text-dark-subtle">
             <span>Số tiền</span>
             <span>Phương thức</span>
             <span>Xác nhận</span>
           </div>
         </div>
 
-        <Card className="glass-card shadow-2xl">
+        <Card className="glass-card border border-white/10 shadow-2xl">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center text-gray-900">
+            <CardTitle className="text-2xl font-bold text-center text-dark-text">
               Nạp Tiền Vào Giao Dịch
             </CardTitle>
           </CardHeader>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Marquee from "react-fast-marquee";
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const partners = [
@@ -24,38 +25,23 @@ const SocialProofSection = () => {
             Hỗ trợ Thanh toán qua Hầu hết Ngân hàng & Ví điện tử
         </h3>
         
-        {/* Enhanced Marquee with Real Bank Logos */}
-        <div className="marquee-container py-8">
-          <div className="marquee-content flex items-center gap-12">
-            {/* First set of partners */}
+        {/* Professional Marquee with React Fast Marquee */}
+        <div className="py-8">
+          <Marquee gradient={false} speed={40} pauseOnHover={true}>
             {partners.map((partner, index) => (
               <div 
-                key={`first-${index}`} 
-                className="flex items-center justify-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 flex-shrink-0 min-w-[180px] h-20"
+                key={index} 
+                className="mx-8 flex items-center justify-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 min-w-[180px] h-20"
               >
                 <img 
                   src={partner.logo} 
-                  alt={`${partner.name} logo`}
+                  alt={`${partner.name} - Thanh toán an toàn`}
                   className="h-10 w-auto object-contain filter brightness-110 contrast-110"
                   style={{ maxWidth: '120px' }}
                 />
               </div>
             ))}
-            {/* Duplicate set for seamless loop */}
-            {partners.map((partner, index) => (
-              <div 
-                key={`second-${index}`} 
-                className="flex items-center justify-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 flex-shrink-0 min-w-[180px] h-20"
-              >
-                <img 
-                  src={partner.logo} 
-                  alt={`${partner.name} logo`}
-                  className="h-10 w-auto object-contain filter brightness-110 contrast-110"
-                  style={{ maxWidth: '120px' }}
-                />
-              </div>
-            ))}
-          </div>
+          </Marquee>
         </div>
 
         {/* Trust Metrics */}

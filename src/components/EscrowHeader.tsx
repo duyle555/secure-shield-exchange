@@ -14,7 +14,7 @@ const EscrowHeader = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-[9999] bg-[var(--color-background)]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]" style={{position: 'fixed', zIndex: 9999}}>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-dark-background/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 text-xl font-bold group">

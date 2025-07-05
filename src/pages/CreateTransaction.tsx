@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import AegisHeader from '@/components/AegisHeader';
+import EscrowHeader from '@/components/EscrowHeader';
 import { useToast } from '@/hooks/use-toast';
 
 const transactionSchema = z.object({
@@ -97,13 +97,13 @@ const CreateTransaction = () => {
   const mainAmount = form.watch('amount') || 0;
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--color-background)' }}>
-      <AegisHeader />
+    <div className="min-h-screen bg-dark-background text-dark-text">
+      <EscrowHeader />
       
-      <div className="pt-24 px-4 max-w-4xl mx-auto">
+      <div className="pt-24 px-4 max-w-4xl mx-auto py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Tạo giao dịch mới</h1>
-          <p className="text-gray-400">Thiết lập một giao dịch an toàn với lá chắn Aegis</p>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-dark-text">Tạo giao dịch mới</h1>
+          <p className="text-dark-subtle text-lg">Thiết lập một giao dịch an toàn với EscrowVN</p>
         </div>
 
         {/* Progress Steps */}
@@ -112,14 +112,14 @@ const CreateTransaction = () => {
             <div key={num} className="flex items-center">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-medium ${
                 step >= num 
-                  ? 'bg-violet-600 text-white' 
-                  : 'bg-gray-700 text-gray-400'
+                  ? 'bg-primary text-white shadow-glow-primary' 
+                  : 'bg-dark-background/60 text-dark-subtle border border-white/20'
               }`}>
                 {num}
               </div>
               {num < 3 && (
-                <div className={`w-16 h-1 mx-4 ${
-                  step > num ? 'bg-violet-600' : 'bg-gray-700'
+                <div className={`w-16 h-1 mx-4 rounded-full ${
+                  step > num ? 'bg-primary shadow-glow-primary' : 'bg-white/20'
                 }`} />
               )}
             </div>
