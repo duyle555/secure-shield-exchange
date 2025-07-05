@@ -20,53 +20,53 @@ const HeroSection = () => {
         <div className="absolute bottom-40 right-1/3 w-28 h-28 bg-accent/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '6s' }}></div>
       </div>
 
-      <div ref={containerRef} className="relative z-10 flex flex-col items-center gap-8 text-center px-4 max-w-6xl mx-auto">
-        {/* Main Content - Asymmetrical Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-          {/* Left Side - Text Content */}
-          <div className="text-left space-y-8">
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-dark-text leading-tight tracking-tight fade-in-up">
+      <div ref={containerRef} className="relative z-10 container mx-auto px-6 sm:px-8 max-w-7xl">
+        {/* Main Content - Mobile-First Single Column */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Text Content - Mobile-First Typography */}
+          <div className="text-center lg:text-left space-y-6 lg:space-y-8 order-2 lg:order-1">
+            {/* Main Headline - Responsive Typography */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-dark-text leading-tight tracking-tight fade-in-up">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Giao dịch An toàn
               </span>{' '}
               Tuyệt đối.
             </h1>
 
-            {/* Sub-headline */}
-            <p className="text-xl md:text-2xl text-dark-subtle leading-relaxed opacity-80 font-light fade-in-up">
+            {/* Sub-headline - Mobile Optimized */}
+            <p className="text-lg sm:text-xl lg:text-2xl text-dark-subtle leading-relaxed opacity-80 font-light fade-in-up px-2 sm:px-0">
               EscrowVN giữ tiền của bạn bằng tấm khiên bảo mật. Người bán chỉ nhận được thanh toán khi bạn đã hoàn toàn hài lòng.
             </p>
 
-            {/* CTA Button */}
+            {/* CTA Button - Enhanced Touch Target */}
             <Link 
               to="/auth" 
-              className="btn-primary px-12 py-6 text-xl font-bold text-white rounded-2xl shadow-glow-primary hover:shadow-glow-primary-strong transition-all duration-300 inline-flex items-center justify-center fade-in-up"
+              className="btn-primary px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-bold text-white rounded-2xl shadow-glow-primary hover:shadow-glow-primary-strong active:scale-95 transition-all duration-300 inline-flex items-center justify-center fade-in-up min-h-[44px] min-w-[200px]"
             >
               Bắt đầu Giao dịch An toàn
             </Link>
           </div>
 
-          {/* Right Side - 3D Graphics Placeholder */}
-          <div className="relative flex items-center justify-center fade-in-up">
-            {/* 3D Shield Placeholder - Will be replaced with Spline model */}
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+          {/* 3D Graphics - Mobile Optimized */}
+          <div className="relative flex items-center justify-center fade-in-up order-1 lg:order-2">
+            {/* 3D Shield Placeholder - Responsive Size */}
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               {/* Main Shield */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-30 animate-pulse"></div>
-              <div className="absolute inset-8 glass-card rounded-3xl flex items-center justify-center group hover:scale-105 transition-transform duration-500">
+              <div className="absolute inset-6 sm:inset-8 glass-card rounded-3xl flex items-center justify-center group active:scale-95 lg:hover:scale-105 transition-transform duration-500">
                 <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-4 mx-auto">
-                    <span className="text-4xl text-white font-bold">ES</span>
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                    <span className="text-2xl sm:text-4xl text-white font-bold">ES</span>
                   </div>
-                  <p className="text-dark-text font-bold text-lg">EscrowVN</p>
-                  <p className="text-dark-subtle text-sm">Khiên Bảo vệ</p>
+                  <p className="text-dark-text font-bold text-base sm:text-lg">EscrowVN</p>
+                  <p className="text-dark-subtle text-xs sm:text-sm">Khiên Bảo vệ</p>
                 </div>
               </div>
               
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-accent/20 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-              <div className="absolute top-1/2 -left-8 w-12 h-12 bg-accent/30 rounded-full blur-lg animate-float" style={{ animationDelay: '4s' }}></div>
+              {/* Floating Elements - Scaled for Mobile */}
+              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-accent/20 rounded-full blur-xl animate-float"></div>
+              <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute top-1/2 -left-4 sm:-left-8 w-8 h-8 sm:w-12 sm:h-12 bg-accent/30 rounded-full blur-lg animate-float" style={{ animationDelay: '4s' }}></div>
             </div>
           </div>
         </div>
