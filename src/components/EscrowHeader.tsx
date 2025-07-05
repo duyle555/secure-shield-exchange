@@ -42,8 +42,8 @@ const EscrowHeader = () => {
             </Link>
           </nav>
 
-          {/* User Actions */}
-          <div className="flex items-center space-x-4">
+          {/* Desktop User Actions */}
+          <div className="hidden md:flex items-center space-x-4">
             {/* Dark Mode Toggle */}
             <button 
               onClick={toggleDarkMode} 
@@ -56,7 +56,7 @@ const EscrowHeader = () => {
             {/* Auth Buttons */}
             <Link 
               to="/auth" 
-              className="hidden md:inline-block px-4 py-2 text-sm font-medium text-dark-subtle hover:text-dark-text rounded-lg hover:bg-white/10 transition-all duration-300"
+              className="px-4 py-2 text-sm font-medium text-dark-subtle hover:text-dark-text rounded-lg hover:bg-white/10 transition-all duration-300"
             >
               Đăng nhập
             </Link>
@@ -66,15 +66,16 @@ const EscrowHeader = () => {
             >
               Bắt đầu
             </Link>
-            
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg text-dark-subtle hover:text-dark-text hover:bg-white/10 transition-all duration-300"
-            >
-              <List className="w-6 h-6" />
-            </button>
           </div>
+            
+          {/* Mobile Menu Button - Clean mobile header with only hamburger */}
+          <button 
+            onClick={toggleMobileMenu}
+            className="md:hidden p-3 rounded-xl text-dark-subtle hover:text-dark-text hover:bg-white/10 transition-all duration-300"
+            aria-label="Open menu"
+          >
+            <List className="w-6 h-6" weight="light" />
+          </button>
         </div>
       </header>
 
@@ -102,6 +103,20 @@ const EscrowHeader = () => {
 
               {/* Navigation Links */}
               <nav className="space-y-4">
+                {/* Dark Mode Toggle in Mobile Menu */}
+                <div className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-white/10 transition-all duration-300">
+                  <span className="text-lg font-medium text-dark-subtle">Chế độ tối</span>
+                  <button 
+                    onClick={toggleDarkMode} 
+                    className="p-2 rounded-xl text-dark-subtle hover:text-dark-text hover:bg-white/10 transition-all duration-300"
+                    aria-label="Toggle dark mode"
+                  >
+                    {isDarkMode ? <Sun className="w-5 h-5" weight="light" /> : <Moon className="w-5 h-5" weight="light" />}
+                  </button>
+                </div>
+                
+                <div className="border-t border-white/10"></div>
+                
                 <Link 
                   to="/dashboard" 
                   className="block px-4 py-3 text-lg font-medium text-dark-subtle hover:text-dark-text hover:bg-white/10 rounded-lg transition-all duration-300"
