@@ -38,33 +38,33 @@ const PricingSection = () => {
 
         {/* Pricing Card - Mobile-First */}
         <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-6 sm:p-8 lg:p-12 rounded-3xl text-center relative overflow-hidden border-2 border-primary/30 active:scale-95 md:hover:scale-105 transition-all duration-300 group">
-            {/* Premium Badge */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="bg-gradient-to-r from-primary to-accent px-4 sm:px-6 py-2 rounded-full text-white font-bold text-xs sm:text-sm">
+          <div className="p-6 sm:p-8 lg:p-12 rounded-2xl text-center relative overflow-hidden border border-white/10 active:scale-95 md:hover:scale-105 transition-all duration-300 group" style={{ background: 'rgba(255, 255, 255, 0.05)', backdropFilter: 'blur(15px)' }}>
+            {/* Premium Badge - Redesigned as pill */}
+            <div className="absolute top-6 right-6">
+              <div className="px-3 py-1 text-xs font-bold text-white bg-gradient-to-r from-primary to-accent rounded-full shadow-glow-primary">
                 ƯU ĐÃI RA MẮT
               </div>
             </div>
 
-            {/* Pricing - Mobile Responsive */}
+            {/* Pricing - Focal Point */}
             <div className="mb-8 lg:mb-12">
-              <div className="text-5xl sm:text-6xl lg:text-7xl font-bold text-dark-text mb-4">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <div className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                   2.5%
                 </span>
               </div>
-              <div className="text-xl sm:text-2xl text-dark-subtle mb-2">Phí giao dịch</div>
+              <div className="text-xl sm:text-2xl text-dark-text mb-2">Phí giao dịch</div>
               <div className="text-base sm:text-lg text-dark-subtle px-2 sm:px-0">
                 Áp dụng cho mọi giao dịch, không phân biệt giá trị
               </div>
             </div>
 
-            {/* Benefits Grid - Mobile-First */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 lg:mb-12">
+            {/* Benefits Grid - 2 Balanced Columns */}
+            <div className="mb-8 lg:mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-dark-text">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center space-x-3 text-left min-h-[44px] p-2 rounded-lg hover:bg-white/5 transition-colors">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" weight="light" />
-                  <span className="text-dark-text text-base sm:text-lg">{benefit}</span>
+                <div key={index} className="flex items-center gap-3 text-left min-h-[44px]">
+                  <CheckCircle size={24} className="text-primary flex-shrink-0" weight="bold" />
+                  <span className="text-base sm:text-lg">{benefit}</span>
                 </div>
               ))}
             </div>
