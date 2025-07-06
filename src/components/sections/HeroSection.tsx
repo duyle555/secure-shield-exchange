@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import usePageLoadAnimation from '@/hooks/usePageLoadAnimation';
+import Spline from '@splinetool/react-spline';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -47,26 +48,35 @@ const HeroSection = () => {
             </Link>
           </div>
 
-          {/* 3D Graphics - Mobile Optimized */}
+          {/* 3D Shield - Interactive Spline Model */}
           <div className="relative flex items-center justify-center fade-in-up order-1 lg:order-2">
-            {/* 3D Shield Placeholder - Responsive Size */}
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              {/* Main Shield */}
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group">
+              {/* Background Glow Effect */}  
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-30 animate-pulse"></div>
-              <div className="absolute inset-6 sm:inset-8 glass-card rounded-3xl flex items-center justify-center group active:scale-95 lg:hover:scale-105 transition-transform duration-500">
+              
+              {/* 3D Spline Shield */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden transition-transform duration-500 group-hover:scale-105">
+                <Spline 
+                  scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" 
+                  className="w-full h-full"
+                />
+              </div>
+              
+              {/* Fallback for loading/error states */}
+              <div className="absolute inset-6 sm:inset-8 glass-card rounded-3xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 <div className="text-center">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-4 mx-auto">
-                    <span className="text-2xl sm:text-4xl text-white font-bold">ES</span>
+                    <span className="text-2xl sm:text-4xl text-white font-bold">🛡️</span>
                   </div>
                   <p className="text-dark-text font-bold text-base sm:text-lg">EscrowVN</p>
                   <p className="text-dark-subtle text-xs sm:text-sm">Khiên Bảo vệ</p>
                 </div>
               </div>
               
-              {/* Floating Elements - Scaled for Mobile */}
-              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-accent/20 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-              <div className="absolute top-1/2 -left-4 sm:-left-8 w-8 h-8 sm:w-12 sm:h-12 bg-accent/30 rounded-full blur-lg animate-float" style={{ animationDelay: '4s' }}></div>
+              {/* Floating Interactive Elements */}
+              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-accent/20 rounded-full blur-xl animate-float group-hover:animate-bounce"></div>
+              <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full blur-xl animate-float group-hover:animate-bounce" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute top-1/2 -left-4 sm:-left-8 w-8 h-8 sm:w-12 sm:h-12 bg-accent/30 rounded-full blur-lg animate-float group-hover:animate-bounce" style={{ animationDelay: '4s' }}></div>
             </div>
           </div>
         </div>

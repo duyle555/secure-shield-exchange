@@ -4,15 +4,15 @@ import Marquee from "react-fast-marquee";
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const partners = [
-  { name: 'Vietcombank', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-Vietcombank-VCB.png', color: '#007A33' },
-  { name: 'Techcombank', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-Techcombank-TCB.png', color: '#E30613' },
-  { name: 'BIDV', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-BIDV.png', color: '#003DA5' },
-  { name: 'ACB', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-ACB.png', color: '#1E3A8A' },
-  { name: 'MB Bank', logo: 'https://haitrieu.com/wp-content/uploads/2022/02/Logo-MBBank-MBB.png', color: '#FFA500' },
-  { name: 'Momo', logo: 'https://developers.momo.vn/v3/assets/images/square-logo.svg', color: '#A50064' },
-  { name: 'ZaloPay', logo: 'https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png', color: '#0068FF' },
-  { name: 'VNPay', logo: 'https://vnpay.vn/s1/statics.vnpay.vn/2023/6/0oxhzjmxbksr1686814746087.png', color: '#1976D2' },
-  { name: 'ShopeePay', logo: 'https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ShopeePay-Square.png', color: '#EE4D2D' },
+  { name: 'Vietcombank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vietcombank_logo_fixed.svg/2560px-Vietcombank_logo_fixed.svg.png', color: '#007A33' },
+  { name: 'Techcombank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Techcombank_logo.png/1280px-Techcombank_logo.png', color: '#E30613' },
+  { name: 'BIDV', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_BIDV.svg/2560px-Logo_BIDV.svg.png', color: '#003DA5' },
+  { name: 'ACB', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Asia_Commercial_Bank_logo.svg/2560px-Asia_Commercial_Bank_logo.svg.png', color: '#1E3A8A' },
+  { name: 'MB Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/MB_Bank_logo.svg/2560px-MB_Bank_logo.svg.png', color: '#FFA500' },
+  { name: 'Momo', logo: 'https://developers.momo.vn/v3/img/logo.svg', color: '#A50064' },
+  { name: 'ZaloPay', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/ZaloPay_Logo.svg/2560px-ZaloPay_Logo.svg.png', color: '#0068FF' },
+  { name: 'VNPay', logo: 'https://vnpay.vn/assets/images/logo-vnpay-pj.png', color: '#1976D2' },
+  { name: 'ShopeePay', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/ShopeePay_logo.svg/2560px-ShopeePay_logo.svg.png', color: '#EE4D2D' },
 ];
 
 const SocialProofSection = () => {
@@ -25,19 +25,19 @@ const SocialProofSection = () => {
             Hỗ trợ Thanh toán qua Hầu hết Ngân hàng & Ví điện tử
         </h3>
         
-        {/* Professional Marquee with React Fast Marquee */}
+        {/* Professional Marquee with Official Partner Logos */}
         <div className="py-8">
           <Marquee gradient={false} speed={40} pauseOnHover={true}>
             {partners.map((partner, index) => (
               <div 
                 key={index} 
-                className="mx-8 flex items-center justify-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 min-w-[180px] h-20"
+                className="mx-12 flex items-center justify-center h-16"
               >
                 <img 
                   src={partner.logo} 
                   alt={`${partner.name} - Thanh toán an toàn`}
-                  className="h-10 w-auto object-contain filter brightness-110 contrast-110"
-                  style={{ maxWidth: '120px' }}
+                  className="max-h-12 w-auto object-contain transition-all duration-300 hover:scale-110 filter brightness-100 contrast-100"
+                  style={{ maxWidth: '160px' }}
                 />
               </div>
             ))}
