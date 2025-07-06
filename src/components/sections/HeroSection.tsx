@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield } from 'phosphor-react';
-import Spline from '@splinetool/react-spline';
 import usePageLoadAnimation from '@/hooks/usePageLoadAnimation';
 
 const HeroSection = () => {
@@ -49,32 +48,37 @@ const HeroSection = () => {
             </Link>
           </div>
 
-          {/* 3D Spline Shield - Professional Interactive Design */}
+          {/* CSS-based Shield Design - Professional Interactive */}
           <div className="relative flex items-center justify-center fade-in-up order-1 lg:order-2">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group">
               {/* Background Glow Effect */}  
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-30 animate-pulse"></div>
               
-              {/* 3D Spline Shield Container */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden group-hover:scale-105 transition-all duration-500 cursor-pointer">
-                {/* Spline 3D Shield */}
-                <div className="w-full h-full transform-gpu transition-transform duration-700 group-hover:rotateY-6 group-hover:rotateX-3">
-                  <Spline 
-                    scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
-                    className="w-full h-full"
-                    onLoad={() => console.log('3D Shield loaded successfully')}
-                    onError={(error) => console.warn('Spline loading fallback:', error)}
-                  />
-                </div>
-                
-                {/* Overlay with Brand Information */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="text-center bg-dark-background/80 backdrop-blur-sm rounded-2xl p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <p className="text-dark-text font-bold text-lg bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              {/* CSS-based Shield */}
+              <div className="absolute inset-6 sm:inset-8 glass-card rounded-3xl flex items-center justify-center group-hover:scale-105 transition-all duration-500 cursor-pointer perspective-1000">
+                <div className="text-center transform-gpu transition-transform duration-700 group-hover:rotateY-12 group-hover:rotateX-6">
+                  {/* Modern Shield Icon with Updated Gradient */}
+                  <div className="relative w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-primary via-accent to-primary rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-2xl group-hover:shadow-glow-primary transform transition-all duration-500 group-hover:scale-110">
+                    {/* Inner glow effect */}
+                    <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
+                    
+                    {/* ES Icon */}
+                    <div className="relative z-10 text-white font-bold text-2xl sm:text-4xl drop-shadow-lg">
+                      ES
+                    </div>
+                    
+                    {/* Animated security rings */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-primary/30 animate-ping"></div>
+                    <div className="absolute inset-2 rounded-xl border border-accent/40 animate-pulse"></div>
+                  </div>
+                  
+                  {/* Brand text with enhanced styling */}
+                  <div className="space-y-1">
+                    <p className="text-dark-text font-bold text-lg sm:text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                       EscrowVN
                     </p>
-                    <p className="text-dark-subtle text-sm font-medium">
-                      Khiên Bảo vệ 3D
+                    <p className="text-dark-subtle text-sm sm:text-base font-medium">
+                      Khiên Bảo vệ
                     </p>
                     
                     {/* Security badge */}
