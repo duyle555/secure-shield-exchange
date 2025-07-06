@@ -4,15 +4,15 @@ import Marquee from "react-fast-marquee";
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const partners = [
-  { name: 'Vietcombank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vietcombank_logo_fixed.svg/2560px-Vietcombank_logo_fixed.svg.png', color: '#007A33' },
+  { name: 'Vietcombank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Vietcombank_logo_fixed.svg/461px-Vietcombank_logo_fixed.svg.png', color: '#007A33' },
   { name: 'Techcombank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Techcombank_logo.png/1280px-Techcombank_logo.png', color: '#E30613' },
-  { name: 'BIDV', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_BIDV.svg/2560px-Logo_BIDV.svg.png', color: '#003DA5' },
-  { name: 'ACB', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Asia_Commercial_Bank_logo.svg/2560px-Asia_Commercial_Bank_logo.svg.png', color: '#1E3A8A' },
-  { name: 'MB Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/MB_Bank_logo.svg/2560px-MB_Bank_logo.svg.png', color: '#FFA500' },
+  { name: 'BIDV', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Logo_BIDV.svg/512px-Logo_BIDV.svg.png?20220815121139', color: '#003DA5' },
+  { name: 'ACB', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Asia_Commercial_Bank_logo.svg/407px-Asia_Commercial_Bank_logo.svg.png', color: '#1E3A8A' },
+  { name: 'MB Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Logo_MB_new.png/960px-Logo_MB_new.png', color: '#FFA500' },
   { name: 'Momo', logo: 'https://developers.momo.vn/v3/img/logo.svg', color: '#A50064' },
-  { name: 'ZaloPay', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/ZaloPay_Logo.svg/2560px-ZaloPay_Logo.svg.png', color: '#0068FF' },
-  { name: 'VNPay', logo: 'https://vnpay.vn/assets/images/logo-vnpay-pj.png', color: '#1976D2' },
-  { name: 'ShopeePay', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/ShopeePay_logo.svg/2560px-ShopeePay_logo.svg.png', color: '#EE4D2D' },
+  { name: 'ZaloPay', logo: 'https://upload.wikimedia.org/wikipedia/vi/7/77/ZaloPay_Logo.png?20200515043603', color: '#0068FF' },
+  { name: 'VNPay', logo: 'https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-VNPAY-QR-1-300x96.png', color: '#1976D2' },
+  { name: 'ShopeePay', logo: 'https://lh5.googleusercontent.com/proxy/P6cwQUtRy36e0-s5ppWXMffXR083b4bYp35M2HzR5b9DLcDlaRgMEX5R7QFGs_fGdZm-v0kzoJKWTuWZqdhrEbMnB1u_bbBOU_s5CWv2153iOKeXxj4xujcE5grV9FYNVwHDeul_kg', color: '#EE4D2D' },
 ];
 
 const SocialProofSection = () => {
