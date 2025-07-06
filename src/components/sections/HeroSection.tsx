@@ -1,8 +1,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Shield } from 'phosphor-react';
 import usePageLoadAnimation from '@/hooks/usePageLoadAnimation';
-import Spline from '@splinetool/react-spline';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -48,35 +48,52 @@ const HeroSection = () => {
             </Link>
           </div>
 
-          {/* 3D Shield - Interactive Spline Model */}
+          {/* 3D CSS Shield - Professional Interactive Design */}
           <div className="relative flex items-center justify-center fade-in-up order-1 lg:order-2">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group">
               {/* Background Glow Effect */}  
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-30 animate-pulse"></div>
               
-              {/* 3D Spline Shield */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden transition-transform duration-500 group-hover:scale-105">
-                <Spline 
-                  scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" 
-                  className="w-full h-full"
-                />
-              </div>
-              
-              {/* Fallback for loading/error states */}
-              <div className="absolute inset-6 sm:inset-8 glass-card rounded-3xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="text-center">
-                  <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-4 mx-auto">
-                    <span className="text-2xl sm:text-4xl text-white font-bold">🛡️</span>
+              {/* 3D CSS Shield */}
+              <div className="absolute inset-6 sm:inset-8 glass-card rounded-3xl flex items-center justify-center group-hover:scale-105 transition-all duration-500 cursor-pointer perspective-1000">
+                <div className="text-center transform-gpu transition-transform duration-700 group-hover:rotateY-12 group-hover:rotateX-6">
+                  {/* Modern Shield Icon */}
+                  <div className="relative w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-primary via-accent to-primary rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-2xl group-hover:shadow-glow-primary transform transition-all duration-500 group-hover:scale-110">
+                    {/* Inner glow effect */}
+                    <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
+                    <Shield className="w-10 h-10 sm:w-16 sm:h-16 text-white relative z-10 drop-shadow-lg" weight="fill" />
+                    
+                    {/* Animated security rings */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-primary/30 animate-ping"></div>
+                    <div className="absolute inset-2 rounded-xl border border-accent/40 animate-pulse"></div>
                   </div>
-                  <p className="text-dark-text font-bold text-base sm:text-lg">EscrowVN</p>
-                  <p className="text-dark-subtle text-xs sm:text-sm">Khiên Bảo vệ</p>
+                  
+                  {/* Brand text with enhanced styling */}
+                  <div className="space-y-1">
+                    <p className="text-dark-text font-bold text-lg sm:text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                      EscrowVN
+                    </p>
+                    <p className="text-dark-subtle text-sm sm:text-base font-medium">
+                      Khiên Bảo vệ Tuyệt đối
+                    </p>
+                    
+                    {/* Security badge */}
+                    <div className="inline-flex items-center gap-1 px-3 py-1 bg-primary/10 rounded-full text-xs font-semibold text-primary mt-2">
+                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                      Bảo mật cấp cao
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              {/* Floating Interactive Elements */}
-              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-accent/20 rounded-full blur-xl animate-float group-hover:animate-bounce"></div>
-              <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full blur-xl animate-float group-hover:animate-bounce" style={{ animationDelay: '2s' }}></div>
-              <div className="absolute top-1/2 -left-4 sm:-left-8 w-8 h-8 sm:w-12 sm:h-12 bg-accent/30 rounded-full blur-lg animate-float group-hover:animate-bounce" style={{ animationDelay: '4s' }}></div>
+              {/* Enhanced Floating Interactive Elements */}
+              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-accent/20 rounded-full blur-xl animate-float group-hover:animate-bounce transition-all duration-300"></div>
+              <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full blur-xl animate-float group-hover:animate-bounce transition-all duration-300" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute top-1/2 -left-4 sm:-left-8 w-8 h-8 sm:w-12 sm:h-12 bg-accent/30 rounded-full blur-lg animate-float group-hover:animate-bounce transition-all duration-300" style={{ animationDelay: '4s' }}></div>
+              
+              {/* Security particles */}
+              <div className="absolute top-1/4 right-0 w-2 h-2 bg-primary rounded-full animate-ping opacity-60" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute bottom-1/3 left-2 w-1 h-1 bg-accent rounded-full animate-ping opacity-40" style={{ animationDelay: '3s' }}></div>
             </div>
           </div>
         </div>
