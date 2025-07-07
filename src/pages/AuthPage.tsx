@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import Shield3D from '@/components/auth/Shield3D';
+import WalletConnectButton from '@/components/auth/WalletConnectButton';
 
 const loginSchema = z.object({
   email: z.string().email('Email không hợp lệ'),
@@ -67,219 +69,265 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen glass-panel" style={{ 
-      background: 'var(--color-background)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '2rem'
-    }}>
-      {/* Animated Background */}
-      <div className="animated-bg"></div>
-      
-      <Card className="w-full max-w-md glass-card">
-        <CardHeader className="text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-violet-600 to-blue-600 rounded-xl flex items-center justify-center">
-              <Shield className="w-8 h-8 text-white" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
-              EscrowVN
-            </span>
-          </div>
-          <CardTitle className="text-xl text-white">
-            {isLogin ? 'Đăng nhập vào EscrowVN' : 'Tạo tài khoản EscrowVN'}
-          </CardTitle>
-          <CardDescription className="text-gray-300">
-            {isLogin 
-              ? 'Bảo vệ các giao dịch của bạn với tài khoản EscrowVN' 
-              : 'Tham gia hệ sinh thái giao dịch an toàn và minh bạch'
-            }
-          </CardDescription>
-        </CardHeader>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Animated Background - same as homepage */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(14,165,233,0.1),transparent_50%)]" />
         
-        <CardContent>
-          {isLogin ? (
-            <form onSubmit={loginForm.handleSubmit(onLogin)} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-300">Email</Label>
-                <div className="relative">
-                  <Envelope className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="email@example.com"
-                    className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
-                    {...loginForm.register('email')}
-                  />
+        {/* Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(139,92,246,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139,92,246,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}
+        />
+        
+        {/* Animated Particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-violet-400 rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 3}s`
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Two Column Layout */}
+      <div className="relative z-10 min-h-screen">
+        <div className="lg:grid lg:grid-cols-5 min-h-screen">
+          {/* Left Column - Form (40%) */}
+          <div className="lg:col-span-2 flex items-center justify-center p-4 lg:p-8">
+            <Card className="w-full max-w-md bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl">
+              <CardHeader className="text-center">
+                <div className="flex items-center justify-center space-x-2 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-violet-600 to-blue-600 rounded-xl flex items-center justify-center">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
+                    EscrowVN
+                  </span>
                 </div>
-                {loginForm.formState.errors.email && (
-                  <p className="text-sm text-red-500">{loginForm.formState.errors.email.message}</p>
-                )}
-              </div>
+                <CardTitle className="text-xl text-white">
+                  {isLogin ? 'Đăng nhập vào EscrowVN' : 'Tạo tài khoản EscrowVN'}
+                </CardTitle>
+                <CardDescription className="text-gray-300">
+                  {isLogin 
+                    ? 'Bảo vệ các giao dịch của bạn với tài khoản EscrowVN' 
+                    : 'Tham gia hệ sinh thái giao dịch an toàn và minh bạch'
+                  }
+                </CardDescription>
+              </CardHeader>
               
-              <div className="space-y-2">
-                <Label htmlFor="password" className="text-gray-300">Mật khẩu</Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="••••••••"
-                    className="pl-12 pr-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
-                    {...loginForm.register('password')}
-                  />
+              <CardContent>
+                {isLogin ? (
+                  <form onSubmit={loginForm.handleSubmit(onLogin)} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-gray-300">Email</Label>
+                      <div className="relative">
+                        <Envelope className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="email@example.com"
+                          className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
+                          {...loginForm.register('email')}
+                        />
+                      </div>
+                      {loginForm.formState.errors.email && (
+                        <p className="text-sm text-red-500">{loginForm.formState.errors.email.message}</p>
+                      )}
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="password" className="text-gray-300">Mật khẩu</Label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Input
+                          id="password"
+                          type={showPassword ? 'text' : 'password'}
+                          placeholder="••••••••"
+                          className="pl-12 pr-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
+                          {...loginForm.register('password')}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                        >
+                          {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
+                        </button>
+                      </div>
+                      {loginForm.formState.errors.password && (
+                        <p className="text-sm text-red-500">{loginForm.formState.errors.password.message}</p>
+                      )}
+                    </div>
+                    
+                    <Button type="submit" className="w-full bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                      <SignIn className="w-4 h-4 mr-2" />
+                      Đăng nhập An toàn
+                    </Button>
+                  </form>
+                ) : (
+                  <form onSubmit={registerForm.handleSubmit(onRegister)} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="fullName" className="text-gray-300">Họ và tên</Label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Input
+                          id="fullName"
+                          placeholder="Nguyễn Văn A"
+                          className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
+                          {...registerForm.register('fullName')}
+                        />
+                      </div>
+                      {registerForm.formState.errors.fullName && (
+                        <p className="text-sm text-red-500">{registerForm.formState.errors.fullName.message}</p>
+                      )}
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-gray-300">Email</Label>
+                      <div className="relative">
+                        <Envelope className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="email@example.com"
+                          className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
+                          {...registerForm.register('email')}
+                        />
+                      </div>
+                      {registerForm.formState.errors.email && (
+                        <p className="text-sm text-red-500">{registerForm.formState.errors.email.message}</p>
+                      )}
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="password" className="text-gray-300">Mật khẩu</Label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Input
+                          id="password"
+                          type="password"
+                          placeholder="••••••••"
+                          className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
+                          {...registerForm.register('password')}
+                        />
+                      </div>
+                      {registerForm.formState.errors.password && (
+                        <p className="text-sm text-red-500">{registerForm.formState.errors.password.message}</p>
+                      )}
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="confirmPassword" className="text-gray-300">Xác nhận mật khẩu</Label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Input
+                          id="confirmPassword"
+                          type="password"
+                          placeholder="••••••••"
+                          className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
+                          {...registerForm.register('confirmPassword')}
+                        />
+                      </div>
+                      {registerForm.formState.errors.confirmPassword && (
+                        <p className="text-sm text-red-500">{registerForm.formState.errors.confirmPassword.message}</p>
+                      )}
+                    </div>
+                    
+                    <Button type="submit" className="w-full bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                      <UserPlus className="w-4 h-4 mr-2" />
+                      Đăng ký & Bắt đầu
+                    </Button>
+                  </form>
+                )}
+                
+                <div className="mt-6 text-center">
                   <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                    onClick={() => setIsLogin(!isLogin)}
+                    className="text-sm text-violet-400 hover:text-violet-300 transition-colors"
                   >
-                    {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
+                    {isLogin 
+                      ? 'Chưa có tài khoản? Đăng ký ngay' 
+                      : 'Đã có tài khoản? Đăng nhập'
+                    }
                   </button>
                 </div>
-                {loginForm.formState.errors.password && (
-                  <p className="text-sm text-red-500">{loginForm.formState.errors.password.message}</p>
-                )}
-              </div>
-              
-              <Button type="submit" className="w-full bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                <SignIn className="w-4 h-4 mr-2" />
-                Đăng nhập An toàn
-              </Button>
-            </form>
-          ) : (
-            <form onSubmit={registerForm.handleSubmit(onRegister)} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="fullName" className="text-gray-300">Họ và tên</Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    id="fullName"
-                    placeholder="Nguyễn Văn A"
-                    className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
-                    {...registerForm.register('fullName')}
-                  />
+
+                {/* Web3 Wallet Connection Section */}
+                <div className="mt-8">
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-gray-600"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-4 bg-black/20 text-gray-400">Hoặc tiếp tục với</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 space-y-3">
+                    <WalletConnectButton
+                      walletName="MetaMask"
+                      walletLogoUrl="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"
+                      onConnect={() => handleWalletConnect('MetaMask')}
+                    />
+                    
+                    <WalletConnectButton
+                      walletName="WalletConnect"
+                      walletLogoUrl="https://upload.wikimedia.org/wikipedia/commons/d/d3/WalletConnect_Icon.svg"
+                      onConnect={() => handleWalletConnect('WalletConnect')}
+                    />
+                    
+                    <WalletConnectButton
+                      walletName="Coinbase Wallet"
+                      walletLogoUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Coinbase_Wallet_logo.svg/512px-Coinbase_Wallet_logo.svg.png"
+                      onConnect={() => handleWalletConnect('Coinbase Wallet')}
+                    />
+                  </div>
                 </div>
-                {registerForm.formState.errors.fullName && (
-                  <p className="text-sm text-red-500">{registerForm.formState.errors.fullName.message}</p>
-                )}
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-300">Email</Label>
-                <div className="relative">
-                  <Envelope className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="email@example.com"
-                    className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
-                    {...registerForm.register('email')}
-                  />
-                </div>
-                {registerForm.formState.errors.email && (
-                  <p className="text-sm text-red-500">{registerForm.formState.errors.email.message}</p>
-                )}
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="password" className="text-gray-300">Mật khẩu</Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
-                    {...registerForm.register('password')}
-                  />
-                </div>
-                {registerForm.formState.errors.password && (
-                  <p className="text-sm text-red-500">{registerForm.formState.errors.password.message}</p>
-                )}
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="confirmPassword" className="text-gray-300">Xác nhận mật khẩu</Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    id="confirmPassword"
-                    type="password"
-                    placeholder="••••••••"
-                    className="pl-12 bg-gray-800/50 border-0 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500 focus:bg-gray-700/50 transition-all duration-300"
-                    {...registerForm.register('confirmPassword')}
-                  />
-                </div>
-                {registerForm.formState.errors.confirmPassword && (
-                  <p className="text-sm text-red-500">{registerForm.formState.errors.confirmPassword.message}</p>
-                )}
-              </div>
-              
-              <Button type="submit" className="w-full bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                <UserPlus className="w-4 h-4 mr-2" />
-                Đăng ký & Bắt đầu
-              </Button>
-            </form>
-          )}
-          
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => setIsLogin(!isLogin)}
-              className="text-sm text-violet-400 hover:text-violet-300 transition-colors"
-            >
-              {isLogin 
-                ? 'Chưa có tài khoản? Đăng ký ngay' 
-                : 'Đã có tài khoản? Đăng nhập'
-              }
-            </button>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Web3 Wallet Connection Section */}
-          <div className="mt-8">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-600"></div>
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-gray-900 text-gray-400">Hoặc tiếp tục với</span>
-              </div>
+          {/* Right Column - 3D Shield (60%) */}
+          <div className="hidden lg:flex lg:col-span-3 items-center justify-center relative">
+            <div className="w-full h-full max-w-2xl">
+              <Shield3D />
             </div>
-
-            <div className="mt-6 space-y-3">
-              <button
-                onClick={() => handleWalletConnect('MetaMask')}
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 border-2 border-gray-700 rounded-lg text-white font-medium hover:bg-gray-800/50 hover:border-violet-500/50 transition-all duration-300"
-              >
-                <div className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center text-white text-xs font-bold">
-                  M
-                </div>
-                <span>Kết nối MetaMask</span>
-              </button>
-
-              <button
-                onClick={() => handleWalletConnect('WalletConnect')}
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 border-2 border-gray-700 rounded-lg text-white font-medium hover:bg-gray-800/50 hover:border-violet-500/50 transition-all duration-300"
-              >
-                <div className="w-6 h-6 bg-blue-500 rounded flex items-center justify-center text-white text-xs font-bold">
-                  W
-                </div>
-                <span>Kết nối WalletConnect</span>
-              </button>
-
-              <button
-                onClick={() => handleWalletConnect('Coinbase Wallet')}
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 border-2 border-gray-700 rounded-lg text-white font-medium hover:bg-gray-800/50 hover:border-violet-500/50 transition-all duration-300"
-              >
-                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white text-xs font-bold">
-                  C
-                </div>
-                <span>Kết nối Coinbase Wallet</span>
-              </button>
+            
+            {/* Additional Visual Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Floating Energy Orbs */}
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-2 h-2 bg-gradient-to-r from-violet-400 to-cyan-400 rounded-full animate-pulse"
+                  style={{
+                    left: `${20 + Math.random() * 60}%`,
+                    top: `${20 + Math.random() * 60}%`,
+                    animationDelay: `${Math.random() * 4}s`,
+                    animationDuration: `${3 + Math.random() * 2}s`
+                  }}
+                />
+              ))}
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };
