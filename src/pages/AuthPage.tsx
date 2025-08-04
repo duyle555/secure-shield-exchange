@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import Shield3D from '@/components/auth/Shield3D';
+import SecurityNetwork3D from '@/components/auth/SecurityNetwork3D';
 import WalletConnectButton from '@/components/auth/WalletConnectButton';
 
 const loginSchema = z.object({
@@ -78,14 +79,7 @@ const AuthPage = () => {
         
         {/* Grid Pattern */}
         <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }}
+          className="absolute inset-0 opacity-20 animated-grid"
         />
         
         {/* Animated Particles */}
@@ -105,11 +99,19 @@ const AuthPage = () => {
         </div>
       </div>
 
-      {/* Two Column Layout */}
+      {/* Three Column Layout */}
       <div className="relative z-10 min-h-screen">
-        <div className="lg:grid lg:grid-cols-5 min-h-screen">
-          {/* Left Column - Form (40%) */}
-          <div className="lg:col-span-2 flex items-center justify-center p-4 lg:p-8">
+        <div className="container mx-auto min-h-screen grid lg:grid-cols-3 gap-8 items-center px-4">
+          
+          {/* Left Column - Shield 3D (33%) */}
+          <div className="hidden lg:flex justify-center items-center">
+            <div className="w-full h-96 max-w-md">
+              <Shield3D />
+            </div>
+          </div>
+
+          {/* Center Column - Auth Form (33%) */}
+          <div className="flex items-center justify-center">
             <Card className="w-full max-w-md bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl">
               <CardHeader className="text-center">
                 <div className="flex items-center justify-center space-x-2 mb-4">
@@ -303,29 +305,13 @@ const AuthPage = () => {
             </Card>
           </div>
 
-          {/* Right Column - 3D Shield (60%) */}
-          <div className="hidden lg:flex lg:col-span-3 items-center justify-center relative">
-            <div className="w-full h-full max-w-2xl">
-              <Shield3D />
-            </div>
-            
-            {/* Additional Visual Elements */}
-            <div className="absolute inset-0 pointer-events-none">
-              {/* Floating Energy Orbs */}
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2 bg-gradient-to-r from-violet-400 to-cyan-400 rounded-full animate-pulse"
-                  style={{
-                    left: `${20 + Math.random() * 60}%`,
-                    top: `${20 + Math.random() * 60}%`,
-                    animationDelay: `${Math.random() * 4}s`,
-                    animationDuration: `${3 + Math.random() * 2}s`
-                  }}
-                />
-              ))}
+          {/* Right Column - Security Network 3D (33%) */}
+          <div className="hidden lg:flex justify-center items-center">
+            <div className="w-full h-96 max-w-md">
+              <SecurityNetwork3D />
             </div>
           </div>
+          
         </div>
       </div>
     </div>
