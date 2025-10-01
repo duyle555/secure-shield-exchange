@@ -118,8 +118,8 @@ const AuthPage = () => {
       {/* Centered Single Column Layout */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-md bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl">
-          <CardHeader className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
+          <CardHeader className="text-center pb-4">
+            <div className="flex items-center justify-center space-x-2 mb-3">
               <div className="w-12 h-12 bg-gradient-to-br from-violet-600 to-blue-600 rounded-xl flex items-center justify-center">
                 <Shield className="w-8 h-8 text-white" />
               </div>
@@ -127,10 +127,10 @@ const AuthPage = () => {
                 EscrowVN
               </span>
             </div>
-            <CardTitle className="text-xl text-white">
+            <CardTitle className="text-xl text-white mb-1">
               {isLogin ? 'Đăng nhập vào EscrowVN' : 'Tạo tài khoản EscrowVN'}
             </CardTitle>
-            <CardDescription className="text-gray-300">
+            <CardDescription className="text-gray-300 text-sm">
               {isLogin 
                 ? 'Bảo vệ các giao dịch của bạn với tài khoản EscrowVN' 
                 : 'Tham gia hệ sinh thái giao dịch an toàn và minh bạch'
@@ -138,7 +138,7 @@ const AuthPage = () => {
             </CardDescription>
           </CardHeader>
           
-          <CardContent>
+          <CardContent className="pt-4">
             {isLogin ? (
               <form onSubmit={loginForm.handleSubmit(onLogin)} className="space-y-4">
                 <div className="space-y-2">
@@ -263,7 +263,7 @@ const AuthPage = () => {
               </form>
             )}
             
-            <div className="mt-6 text-center">
+            <div className="mt-5 text-center">
               <button
                 onClick={() => setIsLogin(!isLogin)}
                 className="text-sm text-violet-400 hover:text-violet-300 transition-colors"
@@ -276,7 +276,7 @@ const AuthPage = () => {
             </div>
 
             {/* Web3 Wallet Connection Section */}
-            <div className="mt-8">
+            <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-600"></div>
@@ -286,7 +286,7 @@ const AuthPage = () => {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-3">
+              <div className="mt-5 space-y-3">
                 <WalletConnectButton
                   walletName="MetaMask"
                   walletLogoUrl="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"
