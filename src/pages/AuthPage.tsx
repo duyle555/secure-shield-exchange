@@ -12,6 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import Shield3D from '@/components/auth/Shield3D';
 import SecurityNetwork3D from '@/components/auth/SecurityNetwork3D';
 import WalletConnectButton from '@/components/auth/WalletConnectButton';
+import Header from '@/components/Header';
 
 const loginSchema = z.object({
   email: z.string().email('Email không hợp lệ'),
@@ -70,7 +71,9 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <>
+      <Header />
+      <div className="min-h-screen relative overflow-hidden">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
@@ -310,6 +313,7 @@ const AuthPage = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 
